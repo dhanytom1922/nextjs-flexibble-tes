@@ -1,7 +1,7 @@
 import { g, config, auth } from '@grafbase/sdk';
 
 // @ts-ignore
-const User = g.datasource('User', {
+const User = g.model('User', {
   name: g.string().length({ min: 2, max: 100 }),
   email: g.string().unique(),
   avatarUrl: g.url(),
@@ -14,7 +14,7 @@ const User = g.datasource('User', {
 })
 
 // @ts-ignore
-const Project = g.datasource('Project', {
+const Project = g.model('Project', {
   title: g.string().length({ min: 3 }),
   description: g.string(), 
   image: g.url(),
@@ -39,4 +39,3 @@ export default config({
     rules: (rules) => rules.private()
   },
 })
-
